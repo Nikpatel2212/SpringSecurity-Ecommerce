@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	table, th, td {
+		border: 1px solid black;
+		border-spacing: 0px;
+		}
+	th, td {
+		padding: 10px;
+		}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="jumbotron">
+<p><b>Student List</b></p>  
+	<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>User Name</th>
+					<th>University Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="studentList : ${student}">
+					<td th:text="${studentList.fname}"></td> 
+					<td th:text="${studentList.lname}"></td>
+					<td th:text="${studentList.universityName}"></td>
+				</tr>
+			</tbody>
+	</table>
+	</div>
+</div>
+<br/>
+<div class="container">
+  	<div class="well">
+		<h2>Add Student</h2>
+		<form action="/addStudent" method="POST">
+			First Name: <input type="text" class="form-control" name="fname" /><br />
+			User Name: <input type="text" class="form-control" name="lname" /><br />
+			University Name: <input type="text" class="form-control" name="universityName" /><br />
+			<input type="submit" />
+		</form>
+	</div>
+</div>
+
+
+
+</body>
+</html>
